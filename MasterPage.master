@@ -1,0 +1,42 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>20fingers </title>
+        <link rel="stylesheet" href="css/bootstrap.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <div class="wrapper main">
+            <div class="container">
+                <div class="header-title">
+                    <h2 class="text-center" style="color: #f7e771;">The Educators e-Learning Portal</h2>
+                </div>
+                <div class="main-content">
+                    <h3 class="text-center" style="padding: 25px;">Welcome To Dashboard</h3>
+                    <div class="grid text-center">
+
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                        </asp:ContentPlaceHolder>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server">
+                        </asp:ContentPlaceHolder>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+            </asp:ContentPlaceHolder>
+            
+        </div>
+    </form>
+    <script src="js/ad-remove.js"></script>
+
+</body>
+</html>
