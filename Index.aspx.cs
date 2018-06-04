@@ -16,6 +16,7 @@ public partial class Index : System.Web.UI.Page
     {
         using (var db = new LogUserDataContext() )
         {
+            // Field values
             var User = TextBoxUser.Text;
             var Pass = TextBoxPass.Text;
 
