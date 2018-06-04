@@ -16,22 +16,23 @@ public partial class Index : System.Web.UI.Page
     {
         using (var db = new LogUserDataContext() )
         {
-            var user = TextBoxUser.Text;
-            var pass = TextBoxPass.Text;
-            //var up = from lp in db.LogUsers
-            //         select lp;
-            var up = db.LogUsers.SingleOrDefault(y => y.Username == user);
+            var User = TextBoxUser.Text;
+            var Pass = TextBoxPass.Text;
 
-            if (up == null)
-            {
-                // something error means no data in table
-            }
+            // stored procedure for login
+            var s = from d in db.LoginVerify(User, Pass)
+                    select d;
 
-            if (up.Password == pass)
+            //var q = from p in db.LogUsers
+            //        where p.Username == User
+            //        && p.Password == Pass
+            //        select p;
+
+            if (s.Any())
             {
                 // do something (correct password)
                 Session["id"] = TextBoxUser.Text;
-                Response.Redirect("dashboard.aspx");
+                Response.Redirect("dashboard.aspx?id" + User);
                 Session.RemoveAll();
             }
             else
