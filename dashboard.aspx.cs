@@ -31,6 +31,15 @@ public partial class dashboard : System.Web.UI.Page
             Session.RemoveAll();
             
         }
+        try
+        {
+            Label lbl = this.Master.FindControl("LblMasterPage") as Label;
+            lbl.Text = Session["id"].ToString();
+        }
+        catch (NullReferenceException ex)
+        {
+            LblName.Text = ex.ToString();
+        }
     }
 
     protected override void OnPreInit(EventArgs e)
